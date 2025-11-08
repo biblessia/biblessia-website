@@ -48,8 +48,8 @@ function HeroDescription() {
           하나님과의 관계는 쉽게 멀어집니다.
         </p>
         <p className="text-lg break-keep">
-          그렇지만 하나님은 우리에게 서로를 붙들어줄 공동체를 주셨습니다. 우리가
-          <span className="font-semibold">
+          그렇지만 하나님은 우리에게 서로를 붙들어줄 공동체를 주셨습니다. 우리가{" "}
+          <span className="font-bold">
             서로의 묵상과 기도를 나눌 때, 하나님이 오늘도 우리 삶 속에서 일하고
             계심을 경험하며 함께 믿음을 지켜
           </span>

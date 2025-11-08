@@ -21,8 +21,8 @@ function TitleItem() {
   return (
     <div className="gap-[48]">
       <div className="flex flex-col gap-[24]">
-        <Highfive size={72} />
-        <h2 className="font-gmarket font-medium text-4xl leading-[1.2]">
+        <Highfive size={64} />
+        <h2 className="font-gmarket font-medium text-[44px] leading-[1.2]">
           1분이면 끝나는
           <br />
           <span className="font-bold relative underline underline-offset-0 decoration-[8px] decoration-orange500/50">
@@ -60,11 +60,11 @@ function StepItem() {
           key={index}
           className="flex flex-col gap-[8] p-[24] bg-background rounded-[16]"
         >
-          <div className="flex flex-row items-center gap-[12] text-xl font-gmarket">
+          <div className="flex flex-row items-center gap-[12] text-[22px] font-gmarket">
             <div className="font-bold">{index + 1}</div>
             <div className="font-medium">{step.title}</div>
           </div>
-          <p className="text-lg break-keep text-black">{step.description}</p>
+          <p className="text-lg break-keep text-black/80">{step.description}</p>
         </div>
       ))}
     </div>
