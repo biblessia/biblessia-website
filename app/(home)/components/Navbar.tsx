@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import Container from "./Container";
+import Container from "../../components/Container";
 import clsx from "clsx";
-import Logo from "./Logo";
+import Logo from "../../components/Logo";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -34,6 +34,14 @@ export default function Navbar() {
           <Logo className="h-7 w-7 md:h-8 md:w-8" />
           <Link href="/" className="text-lg md:text-xl font-gmarket font-bold">
             비블레시아
+          </Link>
+        </div>
+        <div className="flex flex-row gap-[32]">
+          <Link href="/user-guide" className="text-sm md:text-base font-gmarket font-medium">
+            사용 가이드
+          </Link>
+          <Link href="/update-news" className="text-sm md:text-base font-gmarket font-medium">
+            업데이트 소식
           </Link>
         </div>
       </Container>
