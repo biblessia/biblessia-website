@@ -7,7 +7,7 @@ export default function HeroSection() {
   return (
     <div className="w-full">
       <Container className="gap-[32]">
-        <div className="flex flex-col justify-center items-center py-16 gap-[40]">
+        <div className="flex flex-col justify-center items-center pt-[64] pb-[120] gap-[40]">
           <Image
             src="/images/hero.png"
             alt="Hero Image"
@@ -40,7 +40,7 @@ function HeroTitle() {
 
 function HeroDescription() {
   return (
-    <div className="flex flex-row gap-[36] max-w-[1080] pt-[24]">
+    <div className="flex flex-row gap-[36] pt-[24]">
       <div className="flex flex-col flex-1 gap-[24]">
         <p className="text-lg break-keep ">
           오늘날 우리는 신앙을 지키기 어려운 시대에 살고 있습니다. 바쁜 일상,

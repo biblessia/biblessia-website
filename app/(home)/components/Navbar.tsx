@@ -30,17 +30,26 @@ export default function Navbar() {
       )}
     >
       <Container className="h-14 md:h-16 flex items-center justify-between">
-        <div className="flex flex-row items-center text-xl font-bold gap-1">
+        <Link
+          href="/"
+          className="flex flex-row items-center text-xl font-bold gap-1"
+        >
           <Logo className="h-7 w-7 md:h-8 md:w-8" />
-          <Link href="/" className="text-lg md:text-xl font-gmarket font-bold">
+          <div className="text-lg md:text-xl font-gmarket font-bold">
             비블레시아
-          </Link>
-        </div>
+          </div>
+        </Link>
         <div className="flex flex-row gap-[32]">
-          <Link href="/user-guide" className="text-sm md:text-base font-gmarket font-medium">
+          <Link
+            href="/user-guide"
+            className="text-sm md:text-base font-gmarket font-medium"
+          >
             사용 가이드
           </Link>
-          <Link href="/update-news" className="text-sm md:text-base font-gmarket font-medium">
+          <Link
+            href="/update-news"
+            className="text-sm md:text-base font-gmarket font-medium"
+          >
             업데이트 소식
           </Link>
         </div>
