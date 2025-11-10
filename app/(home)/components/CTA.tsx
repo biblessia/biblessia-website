@@ -11,7 +11,7 @@ export default function CTAButton() {
   return (
     <button
       onClick={handleClick}
-      className="font-gmarket font-bold text-xl px-[32] py-[16] bg-black text-white rounded-full 
+      className="font-gmarket font-bold text-base md:text-xl px-[24] md:px-[32] py-[14] md:py-[16] bg-black text-white rounded-full 
         transition-transform duration-200 ease-out 
         hover:scale-105 active:scale-95 cursor-pointer"
     >
