@@ -72,18 +72,18 @@ function HeroDescription() {
 
 function Profile() {
   return (
-    <div className="flex flex-row items-center justify-end gap-[6] md:pr-[12] md:pt-0 pt-[12]">
+    <div className="flex flex-row items-center justify-end gap-[6] lg:pr-[12] md:pt-0 pt-[12]">
       <Image
         src="/images/yuhwan-avatar.png"
         alt="Developer Avatar"
         width={52}
         height={52}
-        className="w-[36] h-[36] md:w-[48] md:h-[48] lg:w-[52] lg:h-[52]"
+        className="w-[44] h-[44] md:w-[48] md:h-[48] lg:w-[52] lg:h-[52]"
       />
-      <div>
-        <div className="font-bold text-[13px] md:text-base">Yuhwan Kim</div>
-        <div className="text-xs md:text-sm leading-[0.8]">
-          Faith-driven App Developer
+      <div className="flex flex-col gap-[2]">
+        <div className="font-bold text-[14px] md:text-base">김유환</div>
+        <div className="text-xs md:text-sm leading-[0.9]">
+          비블레시아 개발자
         </div>
         <Link
           href="mailto:hello@biblessia.com"

@@ -2,16 +2,19 @@ import Image from "next/image";
 import Container from "@/app/components/Container";
 import Highfive from "@/app/icons/Highfive";
 import DownArrow from "@/app/icons/DownArrow";
+import PlayButton from "../components/PlayButton";
+import GuideVideoItemMobile from "../components/GuideVideoItemMobile";
 
 export default function IntroSection() {
   return (
     <div className="w-full bg-white">
-      <Container className="flex flex-row items-end py-[120] gap-[48]">
-        <div className="flex flex-col flex-1 gap-[48]">
+      <Container className="flex flex-row items-end lg:py-[120] py-[64] gap-[48]">
+        <div className="flex flex-col flex-1 lg:gap-[48] gap-[20] px-[24] md:px-[64] lg:px-0">
           <TitleItem />
+          <GuideVideoItemMobile />
           <StepItem />
         </div>
-        <GuideVideoItem />
+        <GuideVideoItemDesktop />
       </Container>
     </div>
   );
@@ -20,9 +23,9 @@ export default function IntroSection() {
 function TitleItem() {
   return (
     <div className="gap-[48]">
-      <div className="flex flex-col gap-[24]">
-        <Highfive size={64} />
-        <h2 className="font-gmarket font-medium text-[44px] leading-[1.2]">
+      <div className="flex flex-col gap-[12] md:gap-[24]">
+        <Highfive className="w-[44] h-[44] md:w-[56] md:h-[56] lg:w-[64] lg:h-[64]" />
+        <h2 className="font-gmarket font-medium text-[26px] md:text-[40px] lg:text-[44px] leading-[1.2]">
           1분이면 끝나는
           <br />
           <span className="font-bold relative underline underline-offset-0 decoration-[8px] decoration-orange500/50">
@@ -54,28 +57,29 @@ function StepItem() {
   ];
 
   return (
-    <div className="flex flex-col gap-[16]">
+    <div className="lg:flex lg:flex-col md:grid md:grid-cols-2 flex flex-col gap-[8] md:gap-[16]">
       {steps.map((step, index) => (
         <div
           key={index}
-          className="flex flex-col gap-[8] p-[24] bg-background rounded-[16]"
+          className="flex flex-col gap-[4] md:gap-[8] p-[16] md:p-[24] bg-background rounded-[16]"
         >
-          <div className="flex flex-row items-center gap-[12] text-[22px] font-gmarket">
+          <div className="flex flex-row items-center gap-[8] md:gap-[12] lg:text-[22px] md:text-[20px] text-base font-gmarket">
             <div className="font-bold">{index + 1}</div>
             <div className="font-medium">{step.title}</div>
           </div>
-          <p className="text-lg break-keep text-black/80">{step.description}</p>
+          <p className="md:text-lg text-[14px] break-keep text-black/80">{step.description}</p>
         </div>
       ))}
     </div>
   );
 }
 
-function GuideVideoItem() {
+function GuideVideoItemDesktop() {
   return (
     <div
       className="
-        relative flex flex-row justify-center group hover:cursor-pointer
+        hidden lg:flex
+        relative flex-row justify-center group hover:cursor-pointer
         transition-transform duration-300 ease-out
         hover:scale-101
       "
@@ -97,29 +101,6 @@ function GuideVideoItem() {
         height={389}
         className="rounded-[24] transition-transform duration-300 ease-out"
       />
-    </div>
-  );
-}
-
-function PlayButton() {
-  return (
-    <div
-      className="
-        w-[96] h-[96]
-        bg-black rounded-full
-        flex items-center justify-center
-        transition-transform duration-300
-        group-hover:scale-110
-      "
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="white"
-        className="w-[64] h-[64] ml-[2]"
-      >
-        <path d="M8 5v14l11-7z" />
-      </svg>
     </div>
   );
 }
