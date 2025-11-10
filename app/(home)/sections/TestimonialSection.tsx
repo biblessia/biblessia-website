@@ -12,8 +12,8 @@ type Testimonial = {
 export default function TestimonialSection() {
   return (
     <div className="w-full">
-      <Container className="flex flex-row items-end py-[120] gap-[48]">
-        <div className="flex flex-col flex-1 gap-[48]">
+      <Container className="flex flex-row items-end lg:py-[120] py-[64] gap-[48]">
+        <div className="flex flex-col flex-1 lg:gap-[48] gap-[32] px-[16] md:px-[64] lg:px-0">
           <TitleItem />
           <TestimonialList />
         </div>
@@ -25,9 +25,9 @@ export default function TestimonialSection() {
 function TitleItem() {
   return (
     <div className="gap-[48]">
-      <div className="flex flex-col gap-[24]">
-        <PenWriting size={64} />
-        <h2 className="font-gmarket font-medium text-[44px] leading-[1.2]">
+      <div className="flex flex-col gap-[12] md:gap-[24]">
+        <PenWriting className="w-[44] h-[44] md:w-[56] md:h-[56] lg:w-[64] lg:h-[64]" />
+        <h2 className="font-gmarket font-medium text-[26px] md:text-[40px] lg:text-[44px] leading-[1.2]">
           비블레시아를 경험한
           <br />
           <span className="font-bold relative underline underline-offset-0 decoration-[8px] decoration-orange500/50">
@@ -91,41 +91,63 @@ function TestimonialList() {
         "출근길 지하철에서도, 잠시 쉬는 시간에도 마음만 먹으면 쉽게 큐티를 할수 있습니다. 내가 속한 공동체, 가족, 친구와 삶을 나눌수 있습니다. 큐티가 익숙하지 않아도 쉽게 할수 있는 점이 너무 좋습니다.",
     },
   ];
-  const chunks = [
-    testimonials.slice(0, 2),
-    testimonials.slice(2, 4),
-    testimonials.slice(4, 7),
-  ];
 
-  return (
-    <div className="grid grid-cols-3 gap-x-5">
-      {chunks.map((col, ci) => (
-        <div key={ci} className="flex flex-col gap-y-5">
-          {col.map((testimonial, i) => (
-            <TestimonialItem key={i} {...testimonial} />
-          ))}
+  // 👉 브레이크포인트별 “보여줄 인덱스”와 “표시 순서”를 원하는 대로 조정
+  // (길이 긴 것과 짧은 것을 섞어서 배치하면 한쪽 컬럼만 지나치게 길어지는 현상을 줄일 수 있어요)
+  const MOBILE_ORDER = [0, 2, 4, 6]; // 모바일: 4개만
+  const TABLET_ORDER = [0, 1, 5, 2, 3, 6, 4]; // 태블릿: 6개 (길이 섞어서 재배치)
+  const DESKTOP_ORDER = [0, 1, 2, 3, 4, 5, 6]; // 데스크탑: 전부(원하면 원래 순서 유지도 OK)
+
+  // 헬퍼: 주어진 인덱스 배열을 매핑해서 카드 렌더 (CSS Columns + break-inside)
+  const renderColumnFlow = (order: number[], className: string) => (
+    <div className={className}>
+      {order.map((idx) => (
+        <div
+          key={idx}
+          className="
+            mb-[16] md:mb-5
+            break-inside-avoid [break-inside:avoid-column]
+          "
+        >
+          <TestimonialItem {...testimonials[idx]} />
         </div>
       ))}
     </div>
+  );
+
+  return (
+    <>
+      {/* 모바일 전용: 1 컬럼 */}
+      {renderColumnFlow(MOBILE_ORDER, "columns-1 gap-5 md:hidden")}
+
+      {/* 태블릿 전용: 2 컬럼 */}
+      {renderColumnFlow(
+        TABLET_ORDER,
+        "hidden md:block lg:hidden columns-2 gap-5"
+      )}
+
+      {/* 데스크탑 전용: 3 컬럼 */}
+      {renderColumnFlow(DESKTOP_ORDER, "hidden lg:block columns-3 gap-5")}
+    </>
   );
 }
 
 function TestimonialItem({ avatar, name, church, review }: Testimonial) {
   return (
     <div className="flex flex-col bg-white border border-black/10 rounded-[16] p-[32] gap-[16]">
-      <div className="flex flex-row items-center gap-[12]">
-        <Image src={avatar} alt="Avatar Image" width={48} height={48} />
+      <div className="flex flex-row items-center gap-[8] md:gap-[12]">
+        <Image src={avatar} alt="Avatar Image" width={48} height={48} className="w-[40] h-[40] md:w-[48] md:h-[48]" />
         <div className="flex flex-col">
-          <div className="text-lg font-semibold">{name}</div>
+          <div className="md:text-lg text-base font-semibold">{name}</div>
           <div
-            className="text-base font-medium text-black/55"
+            className="md:text-base text-sm font-medium text-black/55"
             style={{ lineHeight: 1.2 }}
           >
             {church}
           </div>
         </div>
       </div>
-      <p className="text-lg break-keep whitespace-pre-line">{review}</p>
+      <p className="md:text-lg text-base break-keep whitespace-pre-line">{review}</p>
     </div>
   );
 }

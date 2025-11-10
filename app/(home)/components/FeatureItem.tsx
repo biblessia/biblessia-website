@@ -39,7 +39,7 @@ export default function FeatureItem({
             {title}
           </div>
 
-          <div className="lg:text-lg md:text-base text-[14px] break-keep">
+          <div className="lg:text-lg text-base break-keep">
             {description}
           </div>
         </div>
