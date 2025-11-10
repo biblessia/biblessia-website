@@ -9,7 +9,7 @@ export default function IntroSection() {
   return (
     <div className="w-full bg-white">
       <Container className="flex flex-row items-end lg:py-[120] py-[64] gap-[48]">
-        <div className="flex flex-col flex-1 lg:gap-[48] gap-[20] px-[24] md:px-[64] lg:px-0">
+        <div className="flex flex-col flex-1 lg:gap-[48] gap-[20] px-[16] md:px-[64] lg:px-0">
           <TitleItem />
           <GuideVideoItemMobile />
           <StepItem />
@@ -61,7 +61,7 @@ function StepItem() {
       {steps.map((step, index) => (
         <div
           key={index}
-          className="flex flex-col gap-[4] md:gap-[8] p-[16] md:p-[24] bg-background rounded-[16]"
+          className="flex flex-col gap-[4] md:gap-[8] px-[20] py-[16] md:p-[24] bg-background rounded-[16]"
         >
           <div className="flex flex-row items-center gap-[8] md:gap-[12] lg:text-[22px] md:text-[20px] text-base font-gmarket">
             <div className="font-bold">{index + 1}</div>
