@@ -91,13 +91,28 @@ function FeatureItemList() {
     </div>
   );
 }
-
 function FeatureItem({ emoji, title, description, active }: Feature) {
+  const base =
+    "group flex flex-col items-start gap-[24] px-[32] py-[32] rounded-[16] bg-background " +
+    "border border-transparent " +
+    "transition-all duration-300 ease-out motion-safe:will-change-transform";
+
+  const hoverActive =
+    "hover:scale-[1.01] hover:shadow-sm hover:border-black/5 " + // 더 미세한 변화
+    "focus-visible:outline focus-visible:outline-2 focus-visible:outline-black/10";
+
+  const hoverInactive = "opacity-70";
+
   return (
     <div
-      className={`flex flex-col items-start gap-[24] px-[32] py-[32] rounded-[16] bg-background ${
-        active ? "hover:cursor-pointer" : "hover:cursor-not-allowed"
+      className={`${base} ${
+        active
+          ? hoverActive + " hover:cursor-pointer"
+          : hoverInactive + " hover:cursor-not-allowed"
       }`}
+      role="button"
+      aria-disabled={!active}
+      tabIndex={active ? 0 : -1}
     >
       <div className="flex flex-col gap-[12]">
         {emoji}
@@ -106,12 +121,16 @@ function FeatureItem({ emoji, title, description, active }: Feature) {
           <div className="text-lg break-keep">{description}</div>
         </div>
       </div>
+
       {active ? (
-        <div className="font-gmarket text-black/80">
-          사용법 보기 &nbsp;{">"}
+        <div className="font-gmarket text-black/80 flex items-center gap-1">
+          사용법 보기
+          <span className="transition-transform duration-300 group-hover:translate-x-1">
+            &gt;
+          </span>
         </div>
       ) : (
-        <div className="font-gmarket text-black/40">25년 12월 추가 예정 </div>
+        <div className="font-gmarket text-black/40">25년 12월 추가 예정</div>
       )}
     </div>
   );

@@ -73,7 +73,13 @@ function StepItem() {
 
 function GuideVideoItem() {
   return (
-    <div className="relative flex flex-row justify-center group hover:cursor-pointer">
+    <div
+      className="
+        relative flex flex-row justify-center group hover:cursor-pointer
+        transition-transform duration-300 ease-out
+        hover:scale-101
+      "
+    >
       <div className="absolute px-[24] py-[12] rounded-[10] bg-black text-white text-xl font-gmarket font-bold top-[-24] -rotate-[4deg]">
         공동체 연결 가이드 영상 보기!
       </div>
@@ -89,7 +95,7 @@ function GuideVideoItem() {
         alt="Guide Video Image"
         width={450}
         height={389}
-        className="rounded-[24]"
+        className="rounded-[24] transition-transform duration-300 ease-out"
       />
     </div>
   );
@@ -102,7 +108,7 @@ function PlayButton() {
         w-[96] h-[96]
         bg-black rounded-full
         flex items-center justify-center
-        transition-transform duration-200
+        transition-transform duration-300
         group-hover:scale-110
       "
     >
