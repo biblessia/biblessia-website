@@ -35,7 +35,7 @@ export default function Navbar() {
           className="flex flex-row items-center text-xl font-bold gap-1"
         >
           <Logo className="h-7 w-7 md:h-8 md:w-8" />
-          <div className="text-lg md:text-xl font-gmarket font-bold">
+          <div className="text-lg md:text-xl font-gmarket font-bold text-black/80">
             비블레시아
           </div>
         </Link>
