@@ -7,7 +7,7 @@ export default function HeroSection() {
   return (
     <div className="w-full">
       <Container className="gap-[32]">
-        <div className="flex flex-col justify-center items-center lg:pt-[64] pt-[32] lg:pb-[120] pb-[64] lg:gap-[40] gap-[32]">
+        <div className="flex flex-col justify-center items-center lg:pt-[64] pt-[32] lg:pb-[120] md:pb-[96] pb-[64] lg:gap-[40] gap-[32]">
           <Image
             src="/images/hero_image.png"
             alt="Hero Image"

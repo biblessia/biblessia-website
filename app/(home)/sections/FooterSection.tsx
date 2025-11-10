@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function FooterSection() {
   return (
     <div className="w-full bg-white ">
-      <Container className="flex flex-row justify-between pt-[80] pb-[120] gap-[16]">
+      <Container className="flex flex-row justify-between pt-[64] pb-[64] md:pt-[80] md:pb-[120] lg:px-0 md:px-[64] px-[32] gap-[48] md:gap-[16]">
         <LeftSide />
         <RightSide />
       </Container>
@@ -15,19 +15,21 @@ export default function FooterSection() {
 
 function LeftSide() {
   return (
-    <div className="flex-1 flex flex-col gap-[4]">
-      <div className="flex flex-row gap-[4] items-center">
+    <div className="flex-1 flex flex-col gap-[4] items-center md:items-start">
+      <div className="flex flex-row gap-[4] items-center pr-[16] md:pr-0">
         <Logo />
         <div className="font-gmarket font-bold text-xl">비블레시아</div>
       </div>
-      <div className="text-black/55">말씀과 기도록 연결되는 신앙 공동체</div>
+      <div className="text-black/55 lg:text-base text-sm ">
+        말씀과 기도록 연결되는 신앙 공동체
+      </div>
     </div>
   );
 }
 
 function RightSide() {
   return (
-    <div className="flex flex-row gap-[56]">
+    <div className="hidden md:flex md:flex-row gap-[56]">
       <div className="flex flex-col gap-[8] ">
         <div className="font-bold pb-[16]">핵심 기능들</div>
         <Link href="/" className="font-medium text-black/55">

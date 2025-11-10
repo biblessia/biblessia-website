@@ -8,7 +8,7 @@ import GuideVideoItemMobile from "../components/GuideVideoItemMobile";
 export default function IntroSection() {
   return (
     <div className="w-full bg-white">
-      <Container className="flex flex-row items-end lg:py-[120] py-[64] gap-[48]">
+      <Container className="flex flex-row items-end lg:py-[120] md:py-[96] py-[64] gap-[48]">
         <div className="flex flex-col flex-1 lg:gap-[48] gap-[20] px-[16] md:px-[64] lg:px-0">
           <TitleItem />
           <GuideVideoItemMobile />
