@@ -23,6 +23,24 @@ function LeftSide() {
       <div className="text-black/55 lg:text-base text-sm ">
         말씀과 기도록 연결되는 신앙 공동체
       </div>
+      <div className="flex md:hidden flex-row items-center gap-[16] pt-[32] pr-[8]">
+        <a
+          href="https://slashpage.com/ekklesia/5r398nmn9dx132vwje7y"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-medium text-black/55 text-sm"
+        >
+          개인정보 이용정책
+        </a>
+        <a
+          href="https://slashpage.com/ekklesia/n8pw9x2zdqeg12g7yrqv"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-medium text-black/55 text-sm"
+        >
+          이용약관
+        </a>
+      </div>
     </div>
   );
 }
@@ -59,6 +77,22 @@ function RightSide() {
         <Link href="/" className="font-medium text-black/55">
           연락하기
         </Link>
+        <a
+          href="https://slashpage.com/ekklesia/5r398nmn9dx132vwje7y"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-medium text-black/55"
+        >
+          개인정보 처리방침
+        </a>
+        <a
+          href="https://slashpage.com/ekklesia/n8pw9x2zdqeg12g7yrqv"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-medium text-black/55"
+        >
+          이용약관
+        </a>
       </div>
     </div>
   );
