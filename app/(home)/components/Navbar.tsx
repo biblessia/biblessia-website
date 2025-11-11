@@ -38,7 +38,7 @@ export default function Navbar() {
       role="navigation"
       aria-label="Primary"
       className={clsx(
-        "sticky top-0 z-50 w-full relative",
+        "sticky top-0 z-50 w-full",
         "border-b transition-[background-color,border-color] duration-200 ease-out",
         scrolled
           ? "bg-white border-b-background-dark"
@@ -81,7 +81,7 @@ export default function Navbar() {
           aria-expanded={open}
           aria-controls="mobile-menu"
           onClick={() => setOpen((v) => !v)}
-          className="lg:hidden p-2 rounded-lg transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-black/20 hover:bg-black/5"
+          className="lg:hidden p-2 rounded-lg transition-colors duration-200 focus-visible:outline focus-visible:outline-black/20 hover:bg-black/5"
         >
           {/* 아이콘 토글 */}
           <svg
@@ -157,6 +157,15 @@ export default function Navbar() {
                 className="block px-1 py-3 text-base font-gmarket font-medium hover:bg-black/5 rounded-[8]"
               >
                 업데이트 소식
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/update-news"
+                onClick={() => setOpen(false)}
+                className="block px-1 py-3 text-base font-gmarket font-medium hover:bg-black/5 rounded-[8]"
+              >
+                앱 설치하기
               </Link>
             </li>
           </ul>

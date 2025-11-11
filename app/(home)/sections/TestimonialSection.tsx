@@ -67,7 +67,7 @@ function TestimonialList() {
       name: "곽은주",
       church: "컴앤씨교회",
       review:
-        "I’ve been transformed completely. I wouldn’t use any other service.",
+        "적는 큐티를 몇 년전부터 꾸준히 해오고는 있었는데 여행이라도 가면 큐티책, 노트, 성경, 필기구등 챙길 짐도 믾아 번거로웠어요. 그런데 큐티앱을 알고 언제 어디서든 큐티를 할 수 있음이 큰 장점인거같습니다. 내 큐티가 영구히 기록으로 남는것도 좋구요.\n\n또 공동체에서 기도제목을 받아도 종이를 잊어버리기 쉽고, 카톡으러 받은 것도  다른 메시지랑 섞여 찾기 번거로웠는데 이젠 교제와 기도를 분리하여 운용하니 정말 편리합니다. 말씀읽기도 여러 버전과 해설도 있고 진도를 체크랄 수 있어서 좋아요. 감사일기도 자꾸 내 하루를 돌아보며 김사한 일을 찾게 되다라구요.\n\n큐티, 성경읽기, 중보기도, 감사일기, 한가지도 중요하고 소중하지않은 영역이 없죠. 핑계대지 못하고 이 모든 영역을 할 수 있게 해준 이 앱 정말 너무 좋습니다.",
     },
     {
       avatar: "/images/avatar_4.png",
@@ -94,21 +94,15 @@ function TestimonialList() {
 
   // 👉 브레이크포인트별 “보여줄 인덱스”와 “표시 순서”를 원하는 대로 조정
   // (길이 긴 것과 짧은 것을 섞어서 배치하면 한쪽 컬럼만 지나치게 길어지는 현상을 줄일 수 있어요)
-  const MOBILE_ORDER = [0, 2, 4, 6]; // 모바일: 4개만
-  const TABLET_ORDER = [0, 1, 5, 2, 3, 6, 4]; // 태블릿: 6개 (길이 섞어서 재배치)
-  const DESKTOP_ORDER = [0, 1, 2, 3, 4, 5, 6]; // 데스크탑: 전부(원하면 원래 순서 유지도 OK)
+  const MOBILE_ORDER = [0, 2, 3, 1]; // 모바일: 4개만
+  const TABLET_ORDER = [0, 1, 5, 4, 3, 2, 6]; // 태블릿: 6개 (길이 섞어서 재배치)
+  const DESKTOP_ORDER = [0, 1, 2, 6, 3, 4]; // 데스크탑: 전부(원하면 원래 순서 유지도 OK)
 
   // 헬퍼: 주어진 인덱스 배열을 매핑해서 카드 렌더 (CSS Columns + break-inside)
   const renderColumnFlow = (order: number[], className: string) => (
     <div className={className}>
       {order.map((idx) => (
-        <div
-          key={idx}
-          className="
-            mb-[16] md:mb-5
-            break-inside-avoid [break-inside:avoid-column]
-          "
-        >
+        <div key={idx} className="mb-[16] md:mb-5 break-inside-avoid">
           <TestimonialItem {...testimonials[idx]} />
         </div>
       ))}
@@ -136,7 +130,13 @@ function TestimonialItem({ avatar, name, church, review }: Testimonial) {
   return (
     <div className="flex flex-col bg-white border border-black/10 rounded-[16] p-[32] gap-[16]">
       <div className="flex flex-row items-center gap-[8] md:gap-[12]">
-        <Image src={avatar} alt="Avatar Image" width={48} height={48} className="w-[40] h-[40] md:w-[48] md:h-[48]" />
+        <Image
+          src={avatar}
+          alt="Avatar Image"
+          width={48}
+          height={48}
+          className="w-[40] h-[40] md:w-[48] md:h-[48]"
+        />
         <div className="flex flex-col">
           <div className="md:text-lg text-base font-semibold">{name}</div>
           <div
@@ -147,7 +147,9 @@ function TestimonialItem({ avatar, name, church, review }: Testimonial) {
           </div>
         </div>
       </div>
-      <p className="md:text-lg text-base break-keep whitespace-pre-line">{review}</p>
+      <p className="md:text-lg text-base break-keep whitespace-pre-line">
+        {review}
+      </p>
     </div>
   );
 }
