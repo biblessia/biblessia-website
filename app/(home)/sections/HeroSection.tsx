@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Container from "@/app/components/Container";
 import Link from "next/link";
-import CTAButton from "../components/CTA";
 
 export default function HeroSection() {
   return (
@@ -21,6 +20,19 @@ export default function HeroSection() {
         </div>
       </Container>
     </div>
+  );
+}
+
+function CTAButton() {
+  return (
+    <Link
+      href={"/download"}
+      className="font-gmarket font-bold text-base md:text-xl px-[28] md:px-[32] py-[14] md:py-[16] bg-black text-white rounded-full 
+        transition-transform duration-200 ease-out 
+        hover:scale-105 active:scale-95 cursor-pointer"
+    >
+      앱 설치하기
+    </Link>
   );
 }
 
