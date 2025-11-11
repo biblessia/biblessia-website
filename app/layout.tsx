@@ -24,6 +24,9 @@ export const metadata: Metadata = {
     title: "비블레시아 — 말씀과 기도로 연결된 공동체",
     description: "말씀 묵상, 감사일기, 중보기도를 함께 나누는 신앙 공동체 앱.",
   },
+  other: {
+    "naver-site-verification": "d97781514b5519c8fb9bfc7f2d715ff0cf012080",
+  },
 };
 
 export default function RootLayout({
