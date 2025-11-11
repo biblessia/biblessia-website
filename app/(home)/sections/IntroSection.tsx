@@ -1,9 +1,7 @@
-import Image from "next/image";
 import Container from "@/app/components/Container";
 import Highfive from "@/app/icons/Highfive";
-import DownArrow from "@/app/icons/DownArrow";
-import PlayButton from "../components/PlayButton";
 import GuideVideoItemMobile from "../components/GuideVideoItemMobile";
+import GuideVideoItemDesktop from "../components/GuideVideoItemDesktop";
 
 export default function IntroSection() {
   return (
@@ -67,40 +65,11 @@ function StepItem() {
             <div className="font-bold">{index + 1}</div>
             <div className="font-medium">{step.title}</div>
           </div>
-          <p className="md:text-lg text-[14px] break-keep text-black/80">{step.description}</p>
+          <p className="md:text-lg text-[14px] break-keep text-black/80">
+            {step.description}
+          </p>
         </div>
       ))}
-    </div>
-  );
-}
-
-function GuideVideoItemDesktop() {
-  return (
-    <div
-      className="
-        hidden lg:flex
-        relative flex-row justify-center group hover:cursor-pointer
-        transition-transform duration-300 ease-out
-        hover:scale-101
-      "
-    >
-      <div className="absolute px-[24] py-[12] rounded-[10] bg-black text-white text-xl font-gmarket font-bold top-[-24] -rotate-[4deg]">
-        공동체 연결 가이드 영상 보기!
-      </div>
-      <div className="absolute top-[40]">
-        <DownArrow width={36} height={54} />
-      </div>
-      <div className="absolute inset-0 flex items-center justify-center">
-        <PlayButton />
-      </div>
-
-      <Image
-        src="/images/guide-video-placeholder.png"
-        alt="Guide Video Image"
-        width={450}
-        height={389}
-        className="rounded-[24] transition-transform duration-300 ease-out"
-      />
     </div>
   );
 }
