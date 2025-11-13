@@ -10,27 +10,28 @@ export default function GuideVideoItemMobile() {
   const [showControl, setShowControl] = useState(false);
 
   // ESC로 닫기 (태블릿/모바일 키보드 대응)
-  useEffect(() => {
-    if (!open) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [open]);
+  // useEffect(() => {
+  //   if (!open) return;
+  //   const onKey = (e: KeyboardEvent) => {
+  //     if (e.key === "Escape") setOpen(false);
+  //   };
+  //   window.addEventListener("keydown", onKey);
+  //   return () => window.removeEventListener("keydown", onKey);
+  // }, [open]);
 
-  // 오픈 시 스크롤 잠금
-  useEffect(() => {
-    if (!open) return;
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = prev;
-    };
-  }, [open]);
+  // // 오픈 시 스크롤 잠금
+  // useEffect(() => {
+  //   if (!open) return;
+  //   const prev = document.body.style.overflow;
+  //   document.body.style.overflow = "hidden";
+  //   return () => {
+  //     document.body.style.overflow = prev;
+  //   };
+  // }, [open]);
 
-  const handleOpen = useCallback(() => setOpen(true), []);
+  // const handleOpen = useCallback(() => setOpen(true), []);
   const handleClose = useCallback(() => setOpen(false), []);
+  const handleOpen = () => alert("가이드 영상을 준비중입니다 :)");
 
   return (
     <div className="lg:hidden mt-[24] relative select-none">
