@@ -27,7 +27,7 @@ export default function DownloadPage() {
           <div className="flex flex-col items-center gap-[12]">
             <h1 className="font-gmarket font-medium text-center lg:text-4xl md:text-[36px] text-[24px] leading-[1.2]">
               <span className="font-bold relative underline underline-offset-0 md:decoration-[8px] decoration-[6px] decoration-orange500/50">
-                앱 다운로드 중...
+                앱 스토어 이동 중...
               </span>
             </h1>
             <div className="font-gmarket text-[16px] md:text-[20px] lg:text-[22px] text-black/55 whitespace-pre-line text-center">
