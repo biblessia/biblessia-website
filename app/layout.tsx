@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Noto_Sans_KR } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const notoSans = Noto_Sans_KR({
@@ -36,7 +37,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${notoSans.variable} antialiased`}>{children}</body>
+      <body className={`${notoSans.variable} antialiased`}>
+        {children} <Analytics />
+      </body>
     </html>
   );
 }
