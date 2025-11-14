@@ -9,28 +9,27 @@ import X from "@/app/icons/X";
 export default function GuideVideoItemDesktop() {
   const [open, setOpen] = useState(false);
 
-  // useEffect(() => {
-  //   if (!open) return;
-  //   const onKey = (e: KeyboardEvent) => {
-  //     if (e.key === "Escape") setOpen(false);
-  //   };
-  //   window.addEventListener("keydown", onKey);
-  //   return () => window.removeEventListener("keydown", onKey);
-  // }, [open]);
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
 
-  // useEffect(() => {
-  //   if (open) {
-  //     const prev = document.body.style.overflow;
-  //     document.body.style.overflow = "hidden";
-  //     return () => {
-  //       document.body.style.overflow = prev;
-  //     };
-  //   }
-  // }, [open]);
+  useEffect(() => {
+    if (open) {
+      const prev = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = prev;
+      };
+    }
+  }, [open]);
 
-  // const handleOpen = useCallback(() => setOpen(true), []);
-  const handleClose = useCallback(() => setOpen(false), []);
-  const handleOpen = () => alert("가이드 영상을 준비중입니다 :)");
+  const handleOpen = useCallback(() => setOpen(true), []);
+  const handleClose = useCallback(() => setOpen(false), []);  
 
   return (
     <>
@@ -91,7 +90,7 @@ export default function GuideVideoItemDesktop() {
               onClick={(e) => e.stopPropagation()}
             >
               <video
-                src="/videos/test_video.mp4" // public 폴더에 있는 경우
+                src="/videos/connection_guide.mp4" // public 폴더에 있는 경우
                 autoPlay
                 playsInline
                 controls
